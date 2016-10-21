@@ -1,0 +1,16 @@
+<table class="table">
+  <tr>
+    <th>Status</th>
+    <th>From</th>
+    <th>Subject</th>
+    <th>Sent at</th>
+  </tr>
+  <% @messages.each do |m| %>
+    <tr>
+      <td><%= m.status %></td>
+      <td><%= m.from %></td>
+      <td><%= m.subject %></td>
+      <td><%= m.created_at %></td>
+    </tr>
+  <% end %>
+</table>
