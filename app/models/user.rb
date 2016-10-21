@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   attr_accessor :remember_token
 
+  has_one :inbox
+
   def remember
     self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(remember_token))
