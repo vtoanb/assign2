@@ -1,30 +1,30 @@
 class UsersController < ApplicationController
-	
-	def new
-		@user = User.new
-	end
 
-	def create
-		@user = User.create(user_params)
+  def new
+    @user = User.new
+  end
 
-		if @user.save
-			redirect_to root_path, notice: "User created successfully"
-		else
-			render 'new'
-		end
-	end
+  def create
+    @user = User.create(user_params)
 
-	def show
-		@user = User.find(:id)
-	end
+    if @user.save
+      redirect_to root_path, notice: "User created successfully"
+    else
+      render 'new'
+    end
+  end
 
-	def index
-		@user = User.all
-	end
+  def show
+    @user = User.find(params[:id])
+  end
 
-	private
+  def index
+    @user = User.all
+  end
 
-	def user_params
-		params.require(:user).permit(:password, :email, :name)
-	end
+  private
+
+  def user_params
+    params.require(:user).permit(:password, :email, :name)
+  end
 end
