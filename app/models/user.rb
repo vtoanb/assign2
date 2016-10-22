@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :messages, through: :inbox
   has_many :recipients
   has_many :messages, through: :recipients
+  has_many :friend_ships, foreign_key: 'you_id',
+                          dependent: :destroy
 
   def remember
     self.remember_token = User.new_token
