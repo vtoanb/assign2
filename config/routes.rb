@@ -1,18 +1,7 @@
 Rails.application.routes.draw do
 
-  # get 'friends/index'
-  # get 'friends/new'
-  # get 'friends/create'
-
   resources :friends
-
-  get 'messages/show'
-
-  get 'messages/new'
-
-  get 'messages/create'
-
-  get 'messages/destroy'
+  resources :messages
 
   get 'signup', to: 'users#new'
 
@@ -22,11 +11,6 @@ Rails.application.routes.draw do
 
   get 'signout', to: 'sessions#destroy'
 
-  get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
 
 	root to: 'users#index'
   resources :users do
