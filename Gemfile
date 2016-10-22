@@ -12,6 +12,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.11'
 gem 'capistrano-rails', group: :development
+gem 'rails-erd'
 
 group :development, :test do
   gem 'byebug', platform: :mri
