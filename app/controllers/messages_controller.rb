@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   def show
+    raise 'e'
   end
 
   def new
