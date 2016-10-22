@@ -1,0 +1,11 @@
+<br>
+<% @users.each do |u| %>
+  <div class="card">
+    <img class="card-img-top" src="">
+      <div class="card-block">
+        <h4 class="card-title"><%= u.name %></h4>
+        <p class="card-text"><%= u.email %></p>
+        <%= link_to "add friend", friend_path(u) %>
+      </div>
+  </div>
+<% end %>

@@ -28,3 +28,4 @@ end
 
 gem 'bootstrap', '~> 4.0.0.alpha4'
 gem 'rails-assets-tether', '>= 1.1.0'
+gem 'kaminari'

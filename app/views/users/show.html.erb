@@ -1,1 +1,26 @@
 <h1>Welcome <%=@user.name %> </h1>
+
+<%#= link_to 'New message', new_message_path %>
+<%= link_to 'Find friends', friends_path %>
+<%#= link_to 'Sent message', create_message_path %>
+<table class="table">
+  <tr>
+    <th>Readed?</th>
+    <th>From</th>
+    <th>Subject</th>
+    <th>Sent at</th>
+  </tr>
+
+  <% @messages.each do |m| %>
+    <tr>
+      <td><%= m.status ? "Read":"Unread" %></td>
+      <td><%= link_to m.inbox.user.name, user_path(m.inbox.user) %></td>
+          <% if m.status %>
+      <td><%= m.subject %></td>
+          <% else %>
+      <td><%= link_to m.subject, messages_show_path(m) %></td>
+          <% end %>
+      <td><%= m.created_at %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  # get 'friends/index'
+  # get 'friends/new'
+  # get 'friends/create'
+
+  resources :friends
+
   get 'messages/show'
 
   get 'messages/new'

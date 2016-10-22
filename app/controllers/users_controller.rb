@@ -16,6 +16,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # show your 10 latest messages
+    # @messages = @user.recipients.order(created_at: :desc).page(params[:page]).per(10)
+    @messages = @user.messages.order(created_at: :desc).page(params[:page]).per(10)
+
   end
 
   def index
