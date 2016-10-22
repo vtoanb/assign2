@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
   has_one :inbox
   has_many :messages, through: :inbox
+  has_many :recipients
+  has_many :messages, through: :recipients
 
   def remember
     self.remember_token = User.new_token

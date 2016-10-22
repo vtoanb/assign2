@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161021190051) do
+ActiveRecord::Schema.define(version: 20161022123412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20161021190051) do
   create_table "inboxes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_inboxes_on_user_id", using: :btree
   end
 
   create_table "messages", force: :cascade do |t|
@@ -26,6 +28,17 @@ ActiveRecord::Schema.define(version: 20161021190051) do
     t.boolean  "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "inbox_id"
+    t.index ["inbox_id"], name: "index_messages_on_inbox_id", using: :btree
+  end
+
+  create_table "recipients", force: :cascade do |t|
+    t.integer  "message_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_id"], name: "index_recipients_on_message_id", using: :btree
+    t.index ["user_id"], name: "index_recipients_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,4 +51,8 @@ ActiveRecord::Schema.define(version: 20161021190051) do
     t.index ["email"], name: "index_users_on_email", using: :btree
   end
 
+  add_foreign_key "inboxes", "users"
+  add_foreign_key "messages", "inboxes"
+  add_foreign_key "recipients", "messages"
+  add_foreign_key "recipients", "users"
 end
