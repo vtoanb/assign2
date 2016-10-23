@@ -8,6 +8,8 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
 
     if @user.save
+      # create inbox for it
+      Inbox.create(user: @user)
       redirect_to root_path, notice: "User created successfully"
     else
       render 'new'
