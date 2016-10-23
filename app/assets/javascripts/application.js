@@ -16,3 +16,13 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+jQuery.noConflict()
+
+document.addEventListener("turbolinks:load", function() {
+  // jQuery(".dropdown-toggle").on
+  jQuery(".dropdown-item").on("click", function(){
+    var i = jQuery("#my-dropdown option:selected").val();
+    console.log(i);
+  });
+});

@@ -19,11 +19,8 @@ class MessagesController < ApplicationController
   def new
     if user_logged_in?
       @message = @current_user.inbox.messages.new
-      # 2.times { @message.recipients.build }
+      @message.recipients.build
       @friends = @current_user.friend_ships
-      @friends.each do |f|
-        @message.recipients.build
-      end
     end
   end
 
@@ -31,11 +28,8 @@ class MessagesController < ApplicationController
     if user_logged_in?
       @message = @current_user.inbox.messages.new(message_params)
       if @message.save
-        @message.recipients.create(recipient_params)
-        # count = recipient_params.count
-        # count.times do |c|
-        #   @message.recipients.create(recipient_params.require(c.to_s).permit(:user_id))
-        # end
+        @message.recipients.create(user_id: recipient_params[:recipients])
+        flash[:notice] = "message sent successfully"
         redirect_to @current_user
       else
         flash[:notice] = "#{@message.errors.full_messages.to_sentence}"
@@ -54,8 +48,6 @@ class MessagesController < ApplicationController
   end
 
   def recipient_params
-    # params.require(:message).require(:recipients_attributes).require(:"0").permit(:user_id)
-    # params.require(:message).require(:recipients_attributes)
-    params.require(:message).permit(recipients_attributes: [:user_id])
+     params.require(:message).permit(:recipients)
   end
 end
