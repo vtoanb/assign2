@@ -1,7 +1,22 @@
-<h1>Create new user</h1>
-<%= form_for @user do |f| %>
-	<%= f.text_field :name %>
-	<%= f.text_field :email %>
-	<%= f.password_field :password %>
-	<%= f.submit "create new user" %>
-<% end %>
+
+
+<div class="col-lg-4">
+
+  <h1>Create new user</h1>
+  <br>
+
+  <%= form_for(@user, class: "form-group") do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+    <br>
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control" %>
+
+    <br>
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control" %>
+
+    <br>
+    <%= f.submit "create new user"%>
+  <% end %>
+</div>

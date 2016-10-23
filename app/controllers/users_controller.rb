@@ -16,9 +16,16 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # show your 10 latest messages
-    # @messages = @user.recipients.order(created_at: :desc).page(params[:page]).per(10)
-    @messages = @user.messages.order(created_at: :desc).page(params[:page]).per(10)
+    if @user == @current_user
+      @messages = @user.messages.order(created_at: :desc).page(params[:page]).per(10)
+      # sent item
+      @sent_messages = @user.inbox.messages
+    else
+      @messages  = nil
+      @sent_messages = nil
+    end
+
+    @friends = @user.friend_ships
 
   end
 

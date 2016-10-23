@@ -1,8 +1,12 @@
-<h1>Welcome <%=@user.name %> </h1>
+<% if  @messages and @sent_messages %>
+<br>
+<h3 class="jumbotron"><%="#{@user.name} 's home page"%></h3>
+<br>
 
-<%= link_to 'new message', new_message_path %>
-<%= link_to 'find friends', friends_path %>
-<%#= link_to 'Sent message', create_message_path %>
+
+<h3>Your inbox</h3>
+<br>
+
 <table class="table">
   <tr>
     <th>From</th>
@@ -21,6 +25,47 @@
           <% end %>
       <td><%= m.status ? "#{m.read_time}" : "Unread" %></td>
       <td><%= m.created_at %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br>
+<h3>Sent items</h3>
+<br>
+<table class="table">
+  <tr>
+    <th>Subject</th>
+    <th>Read at</th>
+    <th>Sent at</th>
+  </tr>
+
+  <% @sent_messages.each do |s| %>
+    <tr>
+      <td><%= s.subject %></td>
+      <td><%= s.status ? "#{s.read_time}" : "Unread" %></td>
+      <td><%= s.created_at %></td>
+    </tr>
+  <% end %>
+</table>
+
+<% else %>
+  <br>
+  <h3 class="jumbotron"><%="Welcome to #{@user.name} 's home page"%></h3>
+  <br>
+<% end %>
+
+<br>
+<h3><%="#{@user.name}'s friends"%></h3>
+<br>
+<table class="table">
+  <tr>
+    <th>name</th>
+    <th>email</th>
+  </tr>
+  <% @friends.each do |x| %>
+    <tr>
+      <th><%= x.friend.name %></th>
+      <th><%= x.friend.email %></th>
     </tr>
   <% end %>
 </table>

@@ -1,10 +1,25 @@
-<%= form_for @message do |f| %>
-  <%= f.text_field :subject %>
-  <%= f.text_area :content %>
+<div class="row">
+  <div class="col-lg-4">
 
-  <% friends_array = @friends.map { |x| [x.friend.name, x.friend_id] } %>
-  <%= f.select :recipients, friends_array %>
+    <%= form_for(@message, class: "form-group") do |f| %>
+      <%= f.label :subject %>
+      <%= f.text_field :subject, class: "form-control" %>
+      <br>
+      <%= f.label :content %>
+      <%= f.text_area :content, class: "form-control" %>
 
-  <%= f.submit %>
-<% end %>
+      <br>
+      <%= f.label "Recipient" %>
+      <br>
+      <% friends_array = @friends.map { |x| [x.friend.name, x.friend_id] } %>
+      <%= f.select :recipients, friends_array, class: "form-control" %>
 
+      <br>
+      <br>
+      <%= f.submit :Send, class: 'btn btn-success' %>
+
+    <% end %>
+
+
+  </div>
+</div>
