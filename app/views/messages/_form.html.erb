@@ -1,0 +1,10 @@
+<%= form_for @message do |f| %>
+  <%= f.text_field :subject %>
+  <%= f.text_area :content %>
+  <ul>
+    <%= f.fields_for :recipients do |recipient| %>
+      <li><%= recipient.text_field :user_id %></li>
+    <% end %>
+  </ul>
+  <%= f.submit %>
+<% end %>
