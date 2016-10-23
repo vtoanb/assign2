@@ -1,12 +1,12 @@
-# Homework 2 - *Name of App*
+# Homework 2 - *Ghost chat*
 
-**Name of your app** is a Ruby on Rails blog application that allows users to send messages to each other that can only be read once.
+**ghost chat** is a Ruby on Rails blog application that allows users to send messages to each other that can only be read once.
 
-Submitted by: **Your Name Here**
+Submitted by: **Toan**
 
-Time spent: **X** hours
+Time spent: **26** hours
 
-URL: **Insert your Heroku URL here**
+URL: **https://vtoanbghostchat.herokuapp.com**
 
 ## User Stories
 
@@ -38,12 +38,13 @@ The following **optional** functionality is complete:
 The following **additional** features are implemented:
 
 - [ ] (List anything else that you can get done to improve the app functionality!)
+* [x] Nice UI
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](relative-path-to-your-gif-file-on-github-or-absolute-path-to-file-on-imgur-or-youtube)
+![Video Walkthrough](wt.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
