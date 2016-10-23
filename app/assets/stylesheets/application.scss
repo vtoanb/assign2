@@ -18,7 +18,9 @@
 
 body {
   background-image: url("http://res.cloudinary.com/dgwgbnszx/image/upload/v1477211417/slight_sbbff9.jpg");
-
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .table {
@@ -30,5 +32,9 @@ body {
 }
 
 .navbar {
+  background-color: rgba(50,50,200,0.1);
+}
+
+.card {
   background-color: rgba(50,50,200,0.1);
 }
