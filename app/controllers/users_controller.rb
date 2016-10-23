@@ -30,6 +30,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    current_user
     if params[:page]
       @user = User.page(params[:page]).per(10)
     else
