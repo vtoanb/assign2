@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :user_signed_in?
 
   def authenticate
-    redirect_to sessions_new_path unless user_logged_in?
+    # redirect_to sessions_new_path unless user_logged_in?
+    redirect_to login_path unless user_logged_in?
   end
 
   def current_user
