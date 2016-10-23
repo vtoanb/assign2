@@ -39,6 +39,8 @@ The following **additional** features are implemented:
 
 - [ ] (List anything else that you can get done to improve the app functionality!)
 * [x] Nice UI
+* [x] User have friend list
+* [x] User can go to who send messages
 
 ## Video Walkthrough
 
