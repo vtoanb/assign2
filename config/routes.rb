@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'signout', to: 'sessions#destroy'
 
 
-	root to: 'users#index'
+  root to: 'users#index'
   resources :users do
     resources :inboxes do
     end
