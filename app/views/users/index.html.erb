@@ -1,14 +1,21 @@
+
+<br>
+<h3 class="jumbotron">we just live one, our messages too</h3>
+<br>
+
+
 <table class="table">
-	<tr>
-		<th>Name</th>
-		<th>Email</th>
-		<th>Created at</th>
-	</tr>
-	<% @user.each do |u| %>
-	<tr>
-		<td><%= u.name %></td>
-		<td><%= u.email %></td>
-		<td><%= u.created_at %></td>
-	</tr>
-	<% end %>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Member at</th>
+  </tr>
+  <% @user.each do |u| %>
+  <tr>
+    <td><%= u.name %></td>
+    <td><%= u.email %></td>
+    <td><%= u.created_at %></td>
+  </tr>
+  <% end %>
 </table>
+<%= paginate @user %>

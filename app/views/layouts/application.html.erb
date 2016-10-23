@@ -28,6 +28,9 @@
                 </li>
             </ul>
           <% end %>
+
+          <% if not @current_user %>
+
           <ul class="nav navbar-nav navbar-right pull-lg-right">
               <li class="nav-item">
                 <%= link_to "sign up", signup_path, class: "nav-link" %>
@@ -36,6 +39,16 @@
                 <%= link_to "sign in", login_path, class: "nav-link" %>
               </li>
           </ul>
+
+          <% else %>
+
+          <ul class="nav navbar-nav navbar-right pull-lg-right">
+              <li class="nav-item">
+                <%= link_to "signout", signout_path, class: "nav-link" %>
+              </li>
+          </ul>
+
+          <% end %>
         </div>
       </nav>
     </div>

@@ -30,7 +30,11 @@ class UsersController < ApplicationController
   end
 
   def index
-    @user = User.all
+    if params[:page]
+      @user = User.page(params[:page]).per(10)
+    else
+      @user = User.page(1).per(10)
+    end
   end
 
   private
